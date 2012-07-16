@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+PKG="sequin"
+VER="12.21"
+PKG_DIR=/usr/lib/${PKG}${VER}
+TEST_EXE=sequin
+
+if [ \( "$1" = "upgrade" -o "$1" = "remove" \) -a -L /usr/bin/${TEST_EXE} ]; then
+    update-alternatives --remove sequin /usr/bin/sequin${VER}
+fi
+

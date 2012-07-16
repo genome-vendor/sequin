@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+PRG=sequin
+VER=12.21
+PKG=$(PRG)$(VER)
+DEB_DIR=debian/$(PKG)
+PKG_LIB_DIR=/usr/lib/$(PKG)
+COPY_LIST="VERSION data errmsg images sequin sequin.htm"
+BIN_WRAPPER=\
+'\#!/bin/sh\n'\
+'cd $(PKG_LIB_DIR)\n'\
+"exec ./sequin" '"$$@"'
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	mkdir -p $(DEB_DIR)/usr/bin $(DEB_DIR)$(PKG_LIB_DIR)/
+	for FILE in $(COPY_LIST); do \
+        cp -a $${FILE} $(DEB_DIR)$(PKG_LIB_DIR);\
+	done
+	echo $(BIN_WRAPPER) | sed 's/^ *//' > $(DEB_DIR)/usr/bin/sequin$(VER)

@@ -1,0 +1,11 @@
+Source: sequin12.21
+Section: science
+Priority: optional
+Build-Depends: debhelper (>= 7)
+Maintainer: NCBI Service Desk <info@ncbi.nlm.nih.gov>
+Homepage: http://www.ncbi.nlm.nih.gov/Sequin/index.html
+
+Package: sequin12.21
+Architecture: amd64
+Depends: libxft2, libjpeg62, libxp6
+Description: Sequin is a stand-alone software tool developed by the NCBI for submitting and updating entries to the GenBank sequence database.

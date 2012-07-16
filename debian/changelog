@@ -1,0 +1,5 @@
+sequin12.21 (12.21) unstable; urgency=low
+
+  * Made a debian package
+
+ -- Anthony Brummett <abrummet@genome.wustl.edu>  Mon, 16 Jul 2012 14:38:20 -0500

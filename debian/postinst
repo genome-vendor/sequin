@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+PKG="sequin"
+VER="12.21"
+PKG_DIR=/usr/lib/${PKG}${VER}
+TEST_EXE=sequin
+
+if [ "$1" = "configure" ]; then
+    if [ ! -e /usr/bin/${TEST_EXE} ]; then
+        update-alternatives --install /usr/bin/sequin sequin /usr/bin/sequin${VER} 1
+    fi
+fi
+
